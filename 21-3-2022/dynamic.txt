@@ -1,0 +1,28 @@
+dynamic library procedure
+
+calc_mean.c |calc_sub.c calc_mean.h main.c
+
+      $gcc -c calc_mean.c calc_sub.c -fpic
+   
+      $ ls
+
+      $ gcc *.o -shared -o lib_dyn.so
+     
+      $ ls
+ 
+      $ gcc -c main.c -o main.o
+ 
+      $ gcc -o main main.o -L. lib_dyn.so
+      $ ./main
+
+
+      $ ldd main
+   
+      $ sudo cp lib_dyn.so /usr/lib   //copy library in lib_dun.so
+      $ ./main
+
+      $ sudo rm /usr/lib/lib_dyn.so
+      $ ./main
+
+      $ export LD_LIBRARY_PATH=:/home/ashruti/linux/21-3-2022
+      $ ./main
